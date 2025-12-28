@@ -1,10 +1,18 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List, Dict
 
 
 @dataclass(frozen=True)
 class Conversation:
-    id: str
-    text: str
+    trace_id: str
+    company_name: str
+    company_description: str
+    conversation: str
+    hint: str
+    company_data: tuple
+    model_answer: str
+    is_hallucination: bool
+    is_manipulation: bool
 
 
 @dataclass(frozen=True)
