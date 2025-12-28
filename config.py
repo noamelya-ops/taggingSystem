@@ -1,7 +1,12 @@
 import os
+from pathlib import Path
 
-ANTHROPIC_API_KEY: str = os.environ.get("ANTHROPIC_API_KEY", "")
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent / ".env")
+
+GROQ_API_KEY: str = os.environ.get("GROQ_API_KEY", "")
 DATABASE_PATH: str = "evaluations.db"
 CONVERSATIONS_PATH: str = "data/sample_data.json"
-MODEL_NAME: str = "claude-sonnet-4-20250514"
+MODEL_NAME: str = "llama-3.1-8b-instant"
 
