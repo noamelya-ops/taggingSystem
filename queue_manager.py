@@ -1,11 +1,14 @@
+from __future__ import annotations
+
 import json
 from pathlib import Path
+from typing import Optional
 
 from config import CONVERSATIONS_PATH
 from models import Conversation
 
 
-def load_conversations(path: str | None = None) -> list[Conversation]:
+def load_conversations(path: Optional[str] = None) -> list[Conversation]:
     file_path = Path(path or CONVERSATIONS_PATH)
     if not file_path.exists():
         return []

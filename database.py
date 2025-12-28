@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import sqlite3
 from contextlib import contextmanager
-from typing import Iterator
+from typing import Iterator, List, Dict
 
 from config import DATABASE_PATH
 from models import Evaluation
@@ -67,7 +69,7 @@ def is_evaluated(conversation_id: str) -> bool:
         return cursor.fetchone() is not None
 
 
-def get_all_evaluations() -> list[dict]:
+def get_all_evaluations() -> List[Dict]:
     with get_connection() as conn:
         cursor = conn.execute("SELECT * FROM evaluations ORDER BY created_at DESC")
         return [dict(row) for row in cursor.fetchall()]

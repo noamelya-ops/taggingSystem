@@ -1,13 +1,13 @@
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True, slots=True, kw_only=True)
+@dataclass(frozen=True)
 class Conversation:
     id: str
     text: str
 
 
-@dataclass(frozen=True, slots=True, kw_only=True)
+@dataclass(frozen=True)
 class Evaluation:
     conversation_id: str
     faithfulness: int
